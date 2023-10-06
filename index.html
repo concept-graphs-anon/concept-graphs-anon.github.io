@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="ConceptGraphs: Open-Vocabulary 3D Scene Graphs for Perception and Planning">
+  <meta name="keywords"
+    content="ConceptGraphs, ConceptFusion, 3D Mapping, SLAM, Open-set, Multimodal, Foundation models, CLIP, LLM, VLM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ConceptGraphs: Open-Vocabulary 3D Scene Graphs for Perception and Planning</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QDKPQMTTL7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QDKPQMTTL7');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://concept-graphs-anon.github.io">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">ConceptGraphs: Open-Vocabulary 3D Scene Graphs for Perception and
+              Planning</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/splash.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <span class="coolname">ConceptGraphs</span> builds open-vocabulary 3D scenegraphs that enable a broad range of
+          perception and task planning capabilities.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <video poster="" id="laundry-bag" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/laundry_bag.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="spot-duck" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/spot_duck.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="ronald-macdonald-shoes" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/ronald_macdonald_shoes.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="ronald-macdonald-shoes-missing" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/ronald_macdonald_shoes_missing.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="power-outlet" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/power_outlet.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="spot-mango" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/spot_mango.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="space-party" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/space_party.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="space-party-missing" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/space_party_missing.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="michael-jordan-image" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/michael_jordan_image.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="screwdriver-powerdrill" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/screwdriver_powerdrill.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="snoopy" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/snoopy.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" id="wobbly-sensor-fix" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/wobbly_sensor_fix.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              For robots to perform a wide variety of tasks, they require a 3D representation of the world that is
+              semantically rich, yet compact and efficient for task-driven perception and planning.
+              Recent approaches have attempted to leverage features from large vision-language models to encode
+              semantics in 3D representations.
+              However, these approaches tend to produce maps with per-point feature vectors, which do not scale well in
+              larger environments, nor do they contain semantic spatial relationships between entities in the
+              environment, which are useful for downstream planning.
+              In this work, we propose <span class="coolname">ConceptGraphs</span>, an open-vocabulary graph-structured
+              representation for 3D scenes.
+              <span class="coolname">ConceptGraphs</span> is built by leveraging 2D foundation models and fusing their
+              output to 3D by multi-view
+              association.
+              The resulting representations generalize to novel semantic classes, without the need to collect large 3D
+              datasets or finetune models.
+              We demonstrate the utility of this representation through a number of downstream planning tasks that are
+              specified through abstract (language) prompts and require complex reasoning over spatial and semantic
+              concepts.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Approach</h2>
+          <div class="content has-text-justified">
+            <p>
+              <span class="coolname">ConceptGraphs</span> builds an open-vocabulary 3D scene graph from a sequence of
+              posed RGB-D images. We use generic instance segmentation models to segment regions from RGB images,
+              extract semantic feature vectors for each, and project them to a 3D point cloud. These regions are
+              incrementally associated and fused from multiple views, resulting in a set of 3D objects and associated
+              vision (and language) descriptors. Then large vision and language models are used to caption each mapped
+              3D objects and derive inter-object relations, which generates the edges to connect the set of objects and
+              form a graph. The resulting 3D scene graph provides a structured and comprehensive understanding of the
+              scene and can further be easily translated to a text description, useful for LLM-based task planning.
+            </p>
+            <img src="./static/images/pipeline.png" />
+          </div>
+          <br />
+        </div>
+      </div>
+
+
+      <div class="columns is-centered">
+
+        <!-- Relocalization (particle filter) -->
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-3">Re-localization</h2>
+            <div class="interpolation-image-wrapper-zero-shot">
+              <video poster="" id="snoopy" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/particle_filter.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p>
+              We emply <span class="coolname">ConceptGraphs</span> to localize the robot in a previously mapped
+              environment. Each object encodes a CLIP embedding, which is employed in a landmark-based particle-filter
+              that uses cosine similarity to compute particle weights. Within a few iterations, the robot localizes
+              accurately. In our explainer video, we also demonstrate mapping newly-detected objects that were not
+              present in the original map.
+            </p>
+          </div>
+        </div>
+        <!--/ Relocalization (particle filter) -->
+
+        <!-- Text queries via CLIP / GPT-4 -->
+        <div class="column">
+          <h2 class="title is-3">Text queries via CLIP or GPT-4</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video poster="" id="snoopy" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/nasa-both.mp4" type="video/mp4">
+              </video>
+              <p>
+                We demonstrate the ability of <span class="coolname">ConceptGraphs</span> to answer open-set text
+                queries. Each object in the scene graphs contains an associated CLIP embedding (fused from multi-view
+                images), as well as a text caption. While the CLIP embeddings work well across a wide range of queries,
+                they fail when the queries reference multiple concepts, involve negation, or complex composition. We may
+                also use LLMs (here, GPT-4) to find objects that address the text query. This approach performs better,
+                especially on complex queries, but requires access to an LLM at inference time (while the CLIP
+                text-query approach is easily deployable on CPUs on-board the robot).
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Long-tailed concepts -->
+
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-3">Queries with both text and image context</h2> -->
+      <div class="columns is-centered">
+
+        <!-- text + image -->
+        <div class="column">
+          <div class="content">
+            <h3 class="title is-3">Queries with both text and image context</h3>
+            <video poster="" id="snoopy" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/jackal_visual_mj.mp4" type="video/mp4">
+            </video>
+            <p>
+              We can also handle text queries that include context from an additional image. In this example, we
+              the robot looks at an image of Michael Jordan, and is given a text query "something this guy would play
+              with". It is able to locate the basketball in the scene.
+            </p>
+          </div>
+        </div>
+        <!--/ text + image -->
+
+        <!-- traversability -->
+        <div class="column">
+          <h3 class="title is-3">Traversability puzzle</h3>
+          <div class="columns is-centered">
+            <div class="column content">
+              <video poster="" id="snoopy" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/jackal-traversability.mp4" type="video/mp4">
+              </video>
+              <p>
+                The Jackal robot solving a traversability challenge. All paths to the goal are obstructed by objects. We
+                query an LLM to identify which objects can be safely pushed or traversed by the robot (green) and which
+                objects would be too heavy or hinder the robot’s movement (red). The LLM relies on the ConceptGraphs
+                node captions to make traversability predictions and we add the non-traversable objects to the Jackal
+                costmap for path planning. The Jackal successfully reaches the goal by going through a curtain and
+                pushing a basketball, while also avoiding contact with bricks, an iron dumbbell, and a flower pot.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ traversability -->
+    </div>
+  </section>
+
+
+  <section class="section" id="concurrent work">
+    <div class="container is-max-desktop content">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Concurrent work</h2>
+
+          <div class="content has-text-justified">
+            <p>
+              <a href="https://openreview.net/forum?id=gVBvtRqU1_">OVIR-3D</a> is an open-vocabulary 3D instance-level
+              mapping system that reconstructs an objects from RGB-D images and known poses. Each object is additionally
+              assigned a CLIP embedding for text-query-based retrieval.
+            </p>
+            <p>
+              <a href="https://openmask3d.github.io/">OpenMask3D</a> performs 3D instance segmentation (on pointcloud
+              data) based on open-vocabulary queries (specified as text).
+            </p>
+            <p>
+              <a href="https://openreview.net/forum?id=cjEI5qXoT0">OVSG</a> reconstructs open-vocabulary 3D scene graphs
+              using OVIR-3D and a graph network encoder.
+            </p>
+            <p>
+              <a href="https://sayplan.github.io/">SayPlan</a> demonstrates an efficient planning mechanism using LLMs
+              and 3D Scene Graphs (assumed available).
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Concurrent Work. -->
+
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+          <img alt="Creative Commons License" style="border-width:0"
+            src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website adapted from the Nerfies templates, which is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+                International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
